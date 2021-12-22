@@ -31,7 +31,8 @@ public class ProductService {
     }
 	@Transactional(readOnly=true)
     public ProductType getProductType(String typeName) {
-		return pr.getProductType(typeName).get();
+		if(pr.getProductType(typeName).isPresent()) return pr.getProductType(typeName).get();
+		else return null;
     }
 	
 //	@Transactional

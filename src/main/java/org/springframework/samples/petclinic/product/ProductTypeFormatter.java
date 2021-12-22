@@ -26,9 +26,9 @@ public class ProductTypeFormatter implements Formatter<ProductType>{
 
     @Override
     public ProductType parse(String text, Locale locale) throws ParseException {
-    	return ps.getProductType(text);
-    	
-		//throw new ParseException("type not found: " + text, 0);
+    	ProductType pt = ps.getProductType(text);
+    	if(pt!=null) return pt;
+    	else throw new ParseException("type not found: " + text, 0);
     }
     
 }
