@@ -1,13 +1,11 @@
 package org.springframework.samples.petclinic.product;
 
 import java.util.List;
-import java.util.Map;
 
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,21 +17,20 @@ import org.springframework.web.bind.annotation.PostMapping;
 public class ProductController {
 	
 	private static final String VIEWS_PRODUCT_CREATE_OR_UPDATE_FORM = "products/createOrUpdateProductForm";
-	private static final String WELCOME = "/welcome";
+	private static final String WELCOME = "welcome";
     
+	
+	private final ProductService ps;
+	
+	
 	@Autowired
-	private ProductService ps;
-	
-	
-//	@Autowired
-//	public ProductController(ProductService productService) {
-//		this.ps = productService;
-//	}
+	public ProductController(ProductService productService) {
+		this.ps = productService;
+	}
 	
 	@ModelAttribute("types")
 	public List<ProductType> populateProductTypes() {
 		List<ProductType> types = this.ps.findAllProductTypes();
-		System.out.println(types + ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
 		return types;
 	}
 	

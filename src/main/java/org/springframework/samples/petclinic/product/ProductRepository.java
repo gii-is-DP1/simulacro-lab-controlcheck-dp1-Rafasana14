@@ -23,6 +23,6 @@ public interface ProductRepository extends CrudRepository<Product, Integer>{
     List<Product> findByPriceLessThan(double price);
     
     @Query("SELECT ptype FROM ProductType ptype WHERE ptype.name=?1")
-    ProductType getProductType(String name);
+    Optional<ProductType> getProductType(String name);
     
 }

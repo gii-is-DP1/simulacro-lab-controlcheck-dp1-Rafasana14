@@ -1,8 +1,6 @@
 package org.springframework.samples.petclinic.product;
 
 import java.text.ParseException;
-import java.util.Collection;
-import java.util.List;
 import java.util.Locale;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,15 +26,9 @@ public class ProductTypeFormatter implements Formatter<ProductType>{
 
     @Override
     public ProductType parse(String text, Locale locale) throws ParseException {
-    	System.out.println(text);
-    	List<ProductType> findProductTypes = this.ps.findAllProductTypes();
-    	System.out.println(findProductTypes);
-		for (ProductType type : findProductTypes) {
-			if (type.getName().equals(text)) {
-				return type;
-			}
-		}
-		throw new ParseException("type not found: " + text, 0);
+    	return ps.getProductType(text);
+    	
+		//throw new ParseException("type not found: " + text, 0);
     }
     
 }

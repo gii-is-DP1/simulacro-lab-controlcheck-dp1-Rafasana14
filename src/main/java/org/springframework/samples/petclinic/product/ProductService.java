@@ -2,8 +2,6 @@ package org.springframework.samples.petclinic.product;
 
 import java.util.List;
 
-
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Service;
@@ -33,7 +31,7 @@ public class ProductService {
     }
 	@Transactional(readOnly=true)
     public ProductType getProductType(String typeName) {
-        return pr.getProductType(typeName);
+		return pr.getProductType(typeName).get();
     }
 	
 //	@Transactional
