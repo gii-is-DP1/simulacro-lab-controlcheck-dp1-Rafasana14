@@ -16,9 +16,9 @@
             <petclinic:inputField label="Name" name="name"/>
             <petclinic:inputField label="Price" name="price"/>
             <div class="control-group">
-                    <petclinic:selectField name="" label="Product Type" names="${types}" size="5"/>
+                    <petclinic:selectField name="productType" label="Product Type" names="${types}" size="5"/>
             </div>
-            <petclinic:inputField label="ProductType" name="productType"/>
+            
         </div>
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
